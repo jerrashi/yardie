@@ -49,23 +49,24 @@ const renderGifts = async () => {
     }
 }
 
-renderGifts()
+// Conditionally run renderGifts only if element with id "main-content" exists
+const mainContent = document.getElementById('main-content');
+if (mainContent) {
+  renderGifts();
+}
 
 const renderGift = async () => {
     const requestedID = parseInt(window.location.href.split('/').pop())
-    const response = await fetch(`/gifts/${requestedID}`)
-    console.log(response)
-    const data = await response.json()
+    const response = await fetch(`/gifts/api/${requestedID}`)
+    const gift = await response.json()
     const giftContent = document.getElementById('gift-content')
-    let gift
-    if (data) {
-        gift = data.find(gift => gift.id === requestedID)
-    }
     if (gift) {
-        document.getElementById('image').src = gift.image
+        image = document.getElementById('image')
+        if(gift.image && image){
+            image.src = gift.image
+        }
         document.getElementById('name').textContent = gift.name
         document.getElementById('submittedBy').textContent = 'Submitted by: ' + gift.submittedBy
-        document.getElementById('submittedOn').textContent = 'Submitted on: ' + gift.submittedOn
         document.getElementById('pricePoint').textContent = 'Price: ' + gift.pricePoint
         document.getElementById('audience').textContent = 'Great For: ' + gift.audience
         document.getElementById('description').textContent = gift.description
