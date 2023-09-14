@@ -49,11 +49,17 @@ const renderGifts = async () => {
     }
 }
 
-// Conditionally run renderGifts only if element with id "main-content" exists
-const mainContent = document.getElementById('main-content');
-if (mainContent) {
+const requestedUrl = window.location.href.split('/').pop()
+if (requestedUrl) {
+    const requestedID = parseInt(requestedUrl)
+    if (isNaN(requestedID)){
+        window.location.href = '../404.html'
+    }
+  }
+else {
   renderGifts();
 }
+
 
 const renderGift = async () => {
     const requestedID = parseInt(window.location.href.split('/').pop())
