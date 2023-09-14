@@ -61,10 +61,13 @@ const renderGift = async () => {
     const gift = await response.json()
     const giftContent = document.getElementById('gift-content')
     if (gift) {
-        image = document.getElementById('image')
-        if(gift.image && image){
-            image.src = gift.image
-        }
+        imageContainer = document.createElement('div')
+        imageContainer.id = 'image-container'
+        const giftImage = document.createElement('img')
+        giftImage.id = 'image'
+        giftImage.src = gift.image
+        imageContainer.appendChild(giftImage)
+        giftContent.prepend(imageContainer)
         document.getElementById('name').textContent = gift.name
         document.getElementById('submittedBy').textContent = 'Submitted by: ' + gift.submittedBy
         document.getElementById('pricePoint').textContent = 'Price: ' + gift.pricePoint
