@@ -82,8 +82,6 @@ const renderGift = async () => {
         message.textContent = 'No Gifts Available 😞'
         giftContent.appendChild(message)
     }
-
-
 }
 
 renderGift()
