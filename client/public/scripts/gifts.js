@@ -54,34 +54,3 @@ const mainContent = document.getElementById('main-content');
 if (mainContent) {
   renderGifts();
 }
-
-const renderGift = async () => {
-    const requestedID = parseInt(window.location.href.split('/').pop())
-    const response = await fetch(`/gifts/api/${requestedID}`)
-    const gift = await response.json()
-    const giftContent = document.getElementById('gift-content')
-    if (gift) {
-        imageContainer = document.createElement('div')
-        imageContainer.id = 'image-container'
-        const giftImage = document.createElement('img')
-        giftImage.id = 'image'
-        giftImage.src = gift.image
-        imageContainer.appendChild(giftImage)
-        giftContent.prepend(imageContainer)
-        document.getElementById('name').textContent = gift.name
-        document.getElementById('submittedBy').textContent = 'Submitted by: ' + gift.submittedBy
-        document.getElementById('pricePoint').textContent = 'Price: ' + gift.pricePoint
-        document.getElementById('audience').textContent = 'Great For: ' + gift.audience
-        document.getElementById('description').textContent = gift.description
-        
-        document.title = `Unearthed - ${gift.name}`
-
-    }
-    else{
-        const message = document.createElement('h2')
-        message.textContent = 'No Gifts Available 😞'
-        giftContent.appendChild(message)
-    }
-}
-
-renderGift()

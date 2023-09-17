@@ -49,4 +49,8 @@ const renderGifts = async () => {
     }
 }
 
-renderGifts()
+// Conditionally run renderGifts only if element with id "main-content" exists
+const mainContent = document.getElementById('main-content');
+if (mainContent) {
+  renderGifts();
+}
