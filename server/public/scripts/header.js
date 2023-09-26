@@ -15,15 +15,15 @@ headerTitle.textContent = 'UnEarthed'
 headerLeft.appendChild(headerLogo)
 headerLeft.appendChild(headerTitle)
 
+const headerButton = document.createElement('Home')
+headerButton.textContent = 'Home'
+    
+headerButton.addEventListener('click', (event) => {
+  window.location = '/'
+})
+
 const headerRight = document.createElement('div')
 headerRight.className = 'header-right'
-
-const headerButton = document.createElement('button')
-headerButton.textContent = 'Home'
-
-headerButton.addEventListener('click', function handleClick(event){
-    window.location = '/'
-})
 
 headerRight.appendChild(headerButton)
 
