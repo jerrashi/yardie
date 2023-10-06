@@ -15,8 +15,10 @@ const App = () => {
   useEffect(() => {
     const fetchGifts = async () => {
       const response = await fetch('/gifts');
-      
+      const data =  await response.json();
+      setGifts(data);      
     }
+    fetchGifts();
   }, []);
 
 
