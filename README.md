@@ -3,7 +3,7 @@
 Clone this repo:
 
 ```
-git clone git@github.com:fredngo/codepath-web103-fall-2023-lab-1-solution.git
+git clone git@github.com:jerrashi/yardie.git
 cd codepath-web103-fall-2023-lab-1-solution
 ```
 
