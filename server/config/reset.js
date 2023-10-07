@@ -1,12 +1,12 @@
 import { pool } from '../config/database.js'
 import '../config/dotenv.js'
-import giftData from '../data/gifts.js'
+import locationData from '../data/locations.js'
 
-const createGiftsTable = async () => {
+const createLocationsTable = async () => {
   const createTableQuery = `
-    DROP TABLE IF EXISTS gifts;
+    DROP TABLE IF EXISTS locations;
 
-    CREATE TABLE IF NOT EXISTS gifts (
+    CREATE TABLE IF NOT EXISTS locations (
       id SERIAL PRIMARY KEY,
       name VARCHAR(255) NOT NULL,
       pricePoint VARCHAR(10) NOT NULL,
@@ -20,38 +20,38 @@ const createGiftsTable = async () => {
 
   try {
     await pool.query(createTableQuery)
-    console.log('🎉 gifts table created successfully')
+    console.log('🎉 locations table created successfully')
   } catch (err) {
-    console.error('⚠️ error creating gifts table', err)
+    console.error('⚠️ error creating locations table', err)
   }
 }
 
-const seedGiftsTable = async () => {
-  await createGiftsTable()
+const seedLocationsTable = async () => {
+  await createLocationsTable()
 
-  giftData.forEach((gift) => {
+  locationData.forEach((location) => {
     const insertQuery = {
-      text: 'INSERT INTO gifts (name, pricePoint, audience, image, description, submittedBy, submittedOn) VALUES ($1, $2, $3, $4, $5, $6, $7)'
+      text: 'INSERT INTO locations (name, pricePoint, audience, image, description, submittedBy, submittedOn) VALUES ($1, $2, $3, $4, $5, $6, $7)'
     }
 
     const values = [
-      gift.name,
-      gift.pricePoint,
-      gift.audience,
-      gift.image,
-      gift.description,
-      gift.submittedBy,
-      gift.submittedOn
+      location.name,
+      location.pricePoint,
+      location.audience,
+      location.image,
+      location.description,
+      location.submittedBy,
+      location.submittedOn
     ]
 
     pool.query(insertQuery, values, (err, res) => {
       if (err) {
-        console.error('⚠️ error inserting gift', err)
+        console.error('⚠️ error inserting location', err)
         return
       }
-      console.log(`✅ ${gift.name} added successfully`)
+      console.log(`✅ ${location.name} added successfully`)
     })
   })
 }
 
-seedGiftsTable()
+seedLocationsTable()

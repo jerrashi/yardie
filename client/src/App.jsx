@@ -1,24 +1,24 @@
 import './App.css';
 import React, { useState, useEffect } from 'react';
 import { useRoutes } from 'react-router-dom'
-import Gifts from './pages/Gifts'
-import GiftDetails from './pages/GiftDetails'
+import Locations from './pages/Locations'
+import LocationDetails from './pages/LocationDetails'
 import PageNotFound from './pages/PageNotFound'
 import { Link } from 'react-router-dom'
 
 
 const App = () => {
   
-  const [gifts, setGifts] = useState([]);
+  const [locations, setLocations] = useState([]);
 
 
   useEffect(() => {
-    const fetchGifts = async () => {
-      const response = await fetch('http://localhost:3001/gifts');
+    const fetchLocations = async () => {
+      const response = await fetch('http://localhost:3001/locations');
       const data =  await response.json();
-      setGifts(data);      
+      setLocations(data);      
     }
-    fetchGifts();
+    fetchLocations();
   }, []);
 
 
@@ -26,11 +26,11 @@ const App = () => {
   let element = useRoutes([
     {
       path: "/",
-      element:<Gifts data={gifts}/>
+      element:<Locations data={locations}/>
     },
     {
-      path:"/gift/:id",
-      element: <GiftDetails data={gifts} />
+      path:"/location/:id",
+      element: <LocationDetails data={locations} />
     },
     {
       path:"/*",
@@ -47,7 +47,7 @@ const App = () => {
         <div className="header-container">
           <div className="header-left">
             <img src="/logo.png"/>
-            <h1>UnEarthed</h1>
+            <h1>Yardie</h1>
           </div>
           <div className="header-right">
             <Link to="/"><button className="homeBtn">Home</button></Link>

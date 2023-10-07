@@ -1,7 +1,7 @@
-const giftData = [
+const locationData = [
   {
       "id": 1,
-      "name": "Disco Ball Candle",
+      "name": "Main Quad",
       "pricePoint": "$",
       "audience": "Candle Lovers",
       "image":"https://tinyurl.com/39xc9h6y",
@@ -11,27 +11,27 @@ const giftData = [
   },
   {
       "id": 2,
-      "name": "Lego Flower Bouquet Kit",
+      "name": "51st and Kenwood",
       "pricePoint": "$",
       "audience": "Green Thumbs",
       "image":"https://m.media-amazon.com/images/I/81lnPKhwFfL._AC_SX679_.jpg",
-      "description":"A gift and fun activity to do together",
+      "description":"A location and fun activity to do together",
       "submittedBy":"Isabel",
       "submittedOn":"2023-02-14T12:32:00"
   },
   {
       "id": 3,
-      "name": "Nintendo Switch Lite",
+      "name": "53rd and Blackstone",
       "pricePoint": "$$",
       "audience": "Gamers",
       "image":"https://tinyurl.com/2cdfe59x",
-      "description":"A gift for gamers on-the-go",
+      "description":"A location for gamers on-the-go",
       "submittedBy":"Mario",
       "submittedOn":"2022-09-13T11:01:00"
   },
   {
       "id": 4,
-      "name": "Nike Panda Dunks",
+      "name": "61st and University",
       "pricePoint": "$$",
       "audience": "Sneakerheads",
       "image":"https://images.stockx.com/360/Nike-Dunk-Low-Retro-White-Black-PS/Images/Nike-Dunk-Low-Retro-White-Black-PS/Lv2/img36.jpg?fm=avif&w=576",
@@ -41,7 +41,7 @@ const giftData = [
   },
   {
       "id": 5,
-      "name": "Razer Kitty Headset",
+      "name": "Crerar Library",
       "pricePoint": "$$",
       "audience": "Gamers",
       "image":"https://m.media-amazon.com/images/I/814WZ5eAFoL._AC_SX679_.jpg",
@@ -51,7 +51,7 @@ const giftData = [
   },
   {
       "id": 6,
-      "name": "Nellsi Sunset Lamp Projection",
+      "name": "Regenstein Library",
       "pricePoint": "$",
       "audience": "Sungazers",
       "image":"https://tinyurl.com/y76zsc37",
@@ -91,4 +91,4 @@ const giftData = [
   }
 ]
 
-export default giftData
+export default locationData
